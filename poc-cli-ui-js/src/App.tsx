@@ -320,7 +320,7 @@ const Form: React.FC<{ content: string }> = ({ content }) => {
                         <button
                             type="button"
                             onClick={handleClear}
-                            className="bg-gray-300 hover:bg-gray-400 text-gray-700 font-medium py-3 px-6 rounded-md transition duration-300"
+                            className="bg-red-600 hover:bg-gray-700 text-white font-medium py-3 px-6 rounded-md transition duration-300"
                         >
                             {t("Clear")}
                         </button>
