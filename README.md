@@ -12,18 +12,23 @@
 Screenshots:
 
 * bundled react application 
+
 ![alt text](bundled-app.png)
 ---
 * default application running
+
 ![alt text](default-app-running.png) 
 ---
 * server started
+
 ![alt text](server-started.png) 
 ---
 * form mocks
+
 ![alt text](form-mocks.png) 
 ---
 * translated form
+
 ![alt text](translated-form.png)
 ---
 
