@@ -69,6 +69,13 @@ const translations: Translations = {
         "Tab 3": "Tab 3",
         "Tab 4": "Tab 4",
         "Tab 5": "Tab 5",
+        "Helpful Resources": "Helpful Resources",
+        "Links to documentation, tutorials, and other helpful resources.": "Links to documentation, tutorials, and other helpful resources.",
+        "Latest Updates": "Latest Updates",
+        "Information about recent updates and new features.": "Information about recent updates and new features.",
+        "Contact Support": "Contact Support",
+        "Contact information for support and assistance.": "Contact information for support and assistance.",
+        "Different forms based on tabs. This description area can be used to provide context and instructions for the forms below.": "Different forms based on tabs. This description area can be used to provide context and instructions for the forms below."
     },
     ko: {
         "Form 1": "양식 1",
@@ -89,6 +96,13 @@ const translations: Translations = {
         "Tab 3": "탭 3",
         "Tab 4": "탭 4",
         "Tab 5": "탭 5",
+        "Helpful Resources": "유용한 리소스",
+        "Links to documentation, tutorials, and other helpful resources.": "문서, 튜토리얼 및 기타 유용한 리소스에 대한 링크.",
+        "Latest Updates": "최신 업데이트",
+        "Information about recent updates and new features.": "최근 업데이트 및 새로운 기능에 대한 정보.",
+        "Contact Support": "지원 문의",
+        "Contact information for support and assistance.": "지원 및 도움을 위한 연락처 정보.",
+        "Different forms based on tabs. This description area can be used to provide context and instructions for the forms below.": "탭에 기반한 다양한 양식. 이 설명 영역은 아래 양식에 대한 컨텍스트와 지침을 제공하는 데 사용할 수 있습니다."
     },
     ja: {
         "Form 1": "フォーム 1",
@@ -109,7 +123,14 @@ const translations: Translations = {
         "Tab 3": "タブ 3",
         "Tab 4": "タブ 4",
         "Tab 5": "タブ 5",
-    },
+        "Helpful Resources": "役立つリソース",
+        "Links to documentation, tutorials, and other helpful resources.": "ドキュメント、チュートリアル、およびその他の役立つリソースへのリンク。",
+        "Latest Updates": "最新の更新",
+        "Information about recent updates and new features.": "最近の更新と新機能に関する情報。",
+        "Contact Support": "サポートに連絡",
+        "Contact information for support and assistance.": "サポートと支援の連絡先情報。",
+        "Different forms based on tabs. This description area can be used to provide context and instructions for the forms below.": "タブに基づいたさまざまなフォーム。この説明領域は、以下のフォームのコンテキストと手順を提供するために使用できます。"
+    }
 };
 
 
