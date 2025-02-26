@@ -7,6 +7,7 @@ interface FormValues {
     field3: string;
     field4: string;
     field5: string;
+    field6?: string;
 }
 
 // Translation keys type
@@ -16,6 +17,10 @@ type TranslationKeys =
     | "Form 3"
     | "Form 4"
     | "Form 5"
+    | "Form 6"
+    | "No value selected"
+    | "Agree"
+    | "Disagree"
     | "Form Description"
     | "Different forms based on tabs. This description area can be used to provide context and instructions for the forms below."
     | "Helpful Resources"
@@ -44,7 +49,6 @@ interface Translations {
     ja: LanguageTranslations;
 }
 
-// Translation object
 const translations: Translations = {
     en: {
         "Form 1": "Form 1",
@@ -52,21 +56,14 @@ const translations: Translations = {
         "Form 3": "Form 3",
         "Form 4": "Form 4",
         "Form 5": "Form 5",
+        "Form 6": "Form 6",
         "Form Description": "Form Description",
-        "Different forms based on tabs. This description area can be used to provide context and instructions for the forms below.":
-            "Different forms based on tabs. This description area can be used to provide context and instructions for the forms below.",
-        "Helpful Resources": "Helpful Resources",
-        "Links to documentation, tutorials, and other helpful resources.":
-            "Links to documentation, tutorials, and other helpful resources.",
-        "Latest Updates": "Latest Updates",
-        "Information about recent updates and new features.":
-            "Information about recent updates and new features.",
-        "Contact Support": "Contact Support",
-        "Contact information for support and assistance.":
-            "Contact information for support and assistance.",
-        Required: "Required",
-        Clear: "Clear",
-        Submit: "Submit",
+        "No value selected": "No value selected",
+        "Agree": "Agree",
+        "Disagree": "Disagree",
+        "Required": "Required",
+        "Clear": "Clear",
+        "Submit": "Submit",
         "Tab 1": "Tab 1",
         "Tab 2": "Tab 2",
         "Tab 3": "Tab 3",
@@ -79,21 +76,14 @@ const translations: Translations = {
         "Form 3": "양식 3",
         "Form 4": "양식 4",
         "Form 5": "양식 5",
+        "Form 6": "양식 6",
         "Form Description": "양식 설명",
-        "Different forms based on tabs. This description area can be used to provide context and instructions for the forms below.":
-            "탭을 기반으로 한 다양한 양식입니다. 이 설명 영역은 아래 양식에 대한 컨텍스트와 지침을 제공하는 데 사용할 수 있습니다.",
-        "Helpful Resources": "유용한 리소스",
-        "Links to documentation, tutorials, and other helpful resources.":
-            "문서, 튜토리얼 및 기타 유용한 리소스 링크",
-        "Latest Updates": "최신 업데이트",
-        "Information about recent updates and new features.":
-            "최근 업데이트 및 새로운 기능에 대한 정보",
-        "Contact Support": "지원 문의",
-        "Contact information for support and assistance.":
-            "지원 및 도움을 위한 연락처 정보",
-        Required: "필수",
-        Clear: "지우기",
-        Submit: "제출",
+        "No value selected": "선택된 값 없음",
+        "Agree": "동의",
+        "Disagree": "반대",
+        "Required": "필수",
+        "Clear": "지우기",
+        "Submit": "제출",
         "Tab 1": "탭 1",
         "Tab 2": "탭 2",
         "Tab 3": "탭 3",
@@ -106,21 +96,14 @@ const translations: Translations = {
         "Form 3": "フォーム 3",
         "Form 4": "フォーム 4",
         "Form 5": "フォーム 5",
+        "Form 6": "フォーム 6",
         "Form Description": "フォームの説明",
-        "Different forms based on tabs. This description area can be used to provide context and instructions for the forms below.":
-            "タブに基づいたさまざまなフォームです。この説明エリアは、以下のフォームのコンテキストと手順を提供するために使用できます。",
-        "Helpful Resources": "役立つリソース",
-        "Links to documentation, tutorials, and other helpful resources.":
-            "ドキュメント、チュートリアル、その他の役立つリソースへのリンク",
-        "Latest Updates": "最新のアップデート",
-        "Information about recent updates and new features.":
-            "最近のアップデートと新機能に関する情報",
-        "Contact Support": "サポートに連絡",
-        "Contact information for support and assistance.":
-            "サポートと支援のための連絡先情報",
-        Required: "必須",
-        Clear: "クリア",
-        Submit: "送信",
+        "No value selected": "値が選択されていません",
+        "Agree": "同意する",
+        "Disagree": "不同意",
+        "Required": "必須",
+        "Clear": "クリア",
+        "Submit": "送信",
         "Tab 1": "タブ 1",
         "Tab 2": "タブ 2",
         "Tab 3": "タブ 3",
@@ -128,6 +111,7 @@ const translations: Translations = {
         "Tab 5": "タブ 5",
     },
 };
+
 
 
 // Create a language context
@@ -285,34 +269,51 @@ const Form: React.FC<{ content: string }> = ({ content }) => {
         <div className="bg-white p-8 shadow-md border rounded-lg relative">
             <h2 className="text-2xl font-semibold text-gray-800 mb-6">{content}</h2>
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-                {["field1", "field2", "field3", "field4", "field5"].map(
-                    (field, index, arr) => (
-                        <div
-                            key={field}
-                            className={`${index === arr.length - 1 ? "mb-16" : "mb-0"}`}
-                        >
-                            <label
-                                htmlFor={field}
-                                className="block font-medium text-gray-700 mb-2"
-                            >
-                                {field}
-                            </label>
-                            <input
-                                id={field}
-                                {...register(field as keyof FormValues, {
-                                    required: t("Required"),
-                                })}
-                                className="w-full p-3 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300"
-                            />
-                            {errors[field as keyof FormValues] && (
-                                <p className="text-red-500 mt-1">
-                                    {/* Use optional chaining and provide a default value */}
-                                    {errors[field as keyof FormValues]?.message}
-                                </p>
-                            )}
-                        </div>
-                    )
-                )}
+                {["field1", "field2", "field3", "field4"].map((field) => (
+                    <div key={field} className="mb-4">
+                        <label htmlFor={field} className="block font-medium text-gray-700 mb-2">
+                            {field}
+                        </label>
+                        <input
+                            id={field}
+                            {...register(field as keyof FormValues, { required: t("Required") })}
+                            className="w-full p-3 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300"
+                        />
+                        {errors[field as keyof FormValues] && (
+                            <p className="text-red-500 mt-1">
+                                {errors[field as keyof FormValues]?.message}
+                            </p>
+                        )}
+                    </div>
+                ))}
+
+                {/* Checkbox for field5 */}
+                <div className="mb-4">
+                    <label className="flex items-center space-x-3">
+                        <input
+                            type="checkbox"
+                            {...register("field5")}
+                            className="w-5 h-5 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
+                        />
+                        <span className="text-gray-700">{t("Form 5")}</span>
+                    </label>
+                </div>
+
+                {/* Dropdown for field6 */}
+                <div className="mb-16">
+                    <label htmlFor="field6" className="block font-medium text-gray-700 mb-2">
+                        {t("Form 6")}
+                    </label>
+                    <select
+                        id="field6"
+                        {...register("field6")}
+                        className="w-full p-3 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300"
+                    >
+                        <option value="">{t("No value selected")}</option>
+                        <option value="agree">{t("Agree")}</option>
+                        <option value="disagree">{t("Disagree")}</option>
+                    </select>
+                </div>
 
                 {/* Buttons floating right */}
                 <div className="absolute bottom-8 right-8">
@@ -336,5 +337,7 @@ const Form: React.FC<{ content: string }> = ({ content }) => {
         </div>
     );
 };
+
+
 
 export default App;
