@@ -5,7 +5,7 @@
 1. Go to `poc-cli-ui-js` folder.
 2. Run `npm run build` -> You'll get a `dist` folder.
 3. Go to `main.go` file and point the fileserver to the location of the `dist` folder.
-4. Run server with `go run main.go` or other options.
+4. Run `go build -ldflags "-w" main.go` to build the backend and then run the executable (e.g. main.exe) - this will start the server.
 5. Go to browser at `localhost:3000` and see the react-app running.
 
 
